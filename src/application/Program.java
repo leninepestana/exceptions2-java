@@ -1,5 +1,6 @@
 package application;
 
+import java.text.ParseException;
 import java.util.InputMismatchException;
 import java.util.Locale;
 import java.util.Scanner;
@@ -9,10 +10,10 @@ import model.exceptions.DomainExceptions;
 
 public class Program {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ParseException {
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
-		
+					
 		try {
 			System.out.println("Enter account data");
 			System.out.print("Number: ");
@@ -25,7 +26,6 @@ public class Program {
 			System.out.print("Withdraw limit: ");
 			double withdrawLimit = sc.nextDouble();
 			
-			System.out.println("Initialized constructor");
 			Account account = new Account(accountNumber, accountHolder, accountBalance, withdrawLimit);
 			
 			System.out.println();
@@ -34,7 +34,6 @@ public class Program {
 			double withdrawAmount = sc.nextDouble();
 			
 			account.withdraw(withdrawAmount);
-			
 			System.out.println(account);
 			
 		}

@@ -21,11 +21,11 @@ public class Account {
 	public Integer getAccountNumber() {
 		return accountNumber;
 	}
-
+	/*
 	public void setAccountNumber(Integer accountNumber) {
 		this.accountNumber = accountNumber;
 	}
-
+	*/
 	public String getAccountHolder() {
 		return accountHolder;
 	}
@@ -48,17 +48,17 @@ public class Account {
 		return withdrawLimit;
 	}
 
-	/*
+	
 	public void setWithdrawLimit(Double withdrawLimit) {
 		this.withdrawLimit = withdrawLimit;
 	}
-	*/
+	
 	
 	public void deposit(double depositAmount) {
 		accountBalance += depositAmount;
 	}
 	
-	public void withdraw(double withdrawAmount) throws DomainExceptions {
+	public void withdraw(double withdrawAmount) {
 		if (withdrawAmount > withdrawLimit ) {
 			throw new DomainExceptions("Withdraw error: The amount exceeds withdraw limit");
 		}
@@ -71,7 +71,7 @@ public class Account {
 	@Override
 	public String toString() {
 		return "New balance: "
-				+ accountBalance;
+				+ String.format("%.2f", accountBalance);
 	}
 	
 }
